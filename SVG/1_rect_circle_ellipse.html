@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <style>
+      svg {
+        border: 1px solid #ccc;
+        width: 1000px;
+        height: 800px;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="./svg_1.svg" alt="" />
+    <svg>
+      <rect x="100" y="100" width="300" height="200" fill="red" stroke-width="1" stroke="blue" />
+      <rect x="150" y="150" width="300" height="200" style="fill: aqua" />
+
+      <circle cx="200" cy="500" r="120" style="fill: lightgreen; opacity: 0.5" />
+      <circle cx="300" cy="500" r="120" style="fill: lightblue; opacity: 0.5" />
+
+      <g opacity=".5">
+        <circle cx="650" cy="500" r="120" style="fill: lightgreen" />
+        <circle cx="800" cy="500" r="120" style="fill: lightblue" />
+      </g>
+
+      <ellipse cx="720" cy="200" rx="200" ry="150" style="stroke: maroon; stroke-width: 5px; fill: none" />
+    </svg>
+  </body>
+</html>

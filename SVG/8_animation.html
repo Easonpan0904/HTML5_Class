@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <style>
+      svg {
+        width: 250px;
+        border: 2px solid #000;
+      }
+      #svg_1 {
+        stroke: red;
+        stroke-width: 5px;
+        fill: none;
+      }
+      #svg_2 {
+        stroke: blueviolet;
+        stroke-width: 5px;
+        fill: none;
+      }
+      #svg_2 circle {
+        stroke: mediumaquamarine;
+      }
+      #svg_3 {
+        stroke: maroon;
+        stroke-width: 2px;
+        fill: maroon;
+      }
+      #svg_3 polyline {
+        fill: none;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="svg_1" viewbox="-50 -50 100 100">
+      <circle cx="0" cy="0" r="20">
+        <animate attributeType="XML" attributeName="r" from="" to="" values="30;15;40;0;10" dur="2s" repeatCount="3" />
+      </circle>
+    </svg>
+    <svg id="svg_2" viewbox="-50 -50 100 100">
+      <circle cx="0" cy="0" r="20"></circle>
+      <g>
+        <rect x="-25" y="-25" width="50" height="50" />
+        <line x1="-25" y1="0" x2="25" y2="0" />
+        <line x1="0" y1="25" x2="0" y2="-25" />
+        <animateTransform attributeName="transform" attributeType="XML" type="rotate" values="0;360" dur="2s" repeatCount="3" />
+      </g>
+    </svg>
+    <svg id="svg_3" viewbox="0 0 250 250">
+      <circle cx="0" cy="25" r="3">
+        <animate attributeName="cy" values="25;50;25" dur="2s" repeatCount="3" />
+      </circle>
+      <circle cx="50" cy="60" r="3">
+        <animate attributeName="cy" values="60;40;60" dur="2s" repeatCount="3" />
+      </circle>
+      <circle cx="100" cy="25" r="3">
+        <animate attributeName="cy" values="25;90;25" dur="2s" repeatCount="3" />
+      </circle>
+      <circle cx="150" cy="75" r="3">
+        <animate attributeName="cy" values="75;150;75" dur="2s" repeatCount="3" />
+      </circle>
+      <circle cx="200" cy="45" r="3">
+        <animate attributeName="cy" values="45;10;45" dur="2s" repeatCount="3" />
+      </circle>
+      <circle cx="250" cy="175" r="3">
+        <animate attributeName="cy" values="175;80;175" dur="2s" repeatCount="3" />
+      </circle>
+      <polyline points="0 25,50 60,100 25,150 75,200 45,250 175">
+        <animate
+          attributeName="points"
+          dur="2s"
+          repeatCount="3"
+          values="0 25,50 60,100 25,150 75,200 45,250 175;
+                  0 50,50 40,100 90,150 150,200 10,250 80;
+                  0 25,50 60,100 25,150 75,200 45,250 175"
+        />
+      </polyline>
+    </svg>
+
+    <script></script>
+  </body>
+</html>
+
+<!-- svg 的 viewbox
+<svg viewbox="min-x min-y width height"></svg>
+- min-x: 0
+- min-y: 0
+- width: svg 的寬
+- height: svg 的高 -->
+
+<!-- CSS                   SVG
+---------------------------------------------
+border-color          stroke
+border-width          stroke
+background-color      fill
+left|top              x(cx)|y(cy) -->
+
+<!-- 針對屬性值，使用<animate> 
+  attributeName="屬性" 
+  from="" 
+  to="" 
+  values="動畫影格(屬性值的變化)"
+  dur="執行時間" 
+  repeatCount="重複次數"  -->
+
+<!-- 針對變形處理，使用<animateTransform> 
+  attributeName="屬性" 
+  from="" 
+  to="" 
+  type="rotate|scale"
+  values="動畫影格(屬性值的變化)"
+  dur="執行時間" 
+  repeatCount="重複次數"  -->

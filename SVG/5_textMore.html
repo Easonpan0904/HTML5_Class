@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <style>
+      svg {
+        border: 1px solid #ccc;
+        width: 1000px;
+        height: 800px;
+      }
+      p,
+      svg {
+        font-size: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is 5px HTML text. It's very tiny.</p>
+    <svg id="svg" viewbox="0 0 100 100">
+      <text x="10" y="10">This is 5px SVG text.</text>
+    </svg>
+
+    <script>
+      (function () {
+        let svg = document.getElementById('svg');
+        let lineStr = ``;
+
+        for (let i = 0; i < 100; i++) {
+          let interval = i * 50;
+          lineStr += `
+            <g style="stroke:rgba(0, 0, 0,.3); font: 10px tahoma" >
+            <!--水平線-->
+              <line x1="0" y1="${interval}" x2="${getComputedStyle(svg).width}" y2="${interval}" />
+              <text x="0" y="${interval}" >${interval}</text>
+            <!--垂直線-->
+              <line x1="${interval}" y1="0" x2="${interval}" y2="${getComputedStyle(svg).height}" />
+              <text x="${interval}" y="10" >${interval}</text>
+            </g>
+          `;
+        }
+        // svg.innerHTML = lineStr;
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SVG</title>
+    <style>
+      svg {
+        border: 1px solid #ccc;
+        width: 1000px;
+        height: 800px;
+      }
+      p,
+      svg {
+        font-size: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <svg id="svg" viewbox="0 0 400 400">
+      <g style="stroke: #000; fill: #fff"></g>
+    </svg>
+
+    <script>
+      (function () {
+        let svg = document.getElementById('svg');
+        let lineStr = ``;
+
+        for (let i = 0; i < 100; i++) {
+          let interval = i * 50;
+          lineStr += `
+            <g style="stroke:rgba(0, 0, 0,.3); font: 10px tahoma" >
+            <!--水平線-->
+              <line x1="0" y1="${interval}" x2="${getComputedStyle(svg).width}" y2="${interval}" />
+              <text x="0" y="${interval}" >${interval}</text>
+            <!--垂直線-->
+              <line x1="${interval}" y1="0" x2="${interval}" y2="${getComputedStyle(svg).height}" />
+              <text x="${interval}" y="10" >${interval}</text>
+            </g>
+
+            <g style="stroke: #000; fill: #fff">
+              <rect x="5" y="5" width="90" height="90" style="" />
+              <circle cx="170" cy="50" r="45" style="" />
+              <polygon points="279 5,294 35,328 40,303 62,309 94,279 79,248 94,254 62,230 39,263 35" style="" />
+              <line x1="410" y1="95" x2="440" y2="10">
+            </g>
+          `;
+        }
+        svg.innerHTML = lineStr;
+      })();
+    </script>
+  </body>
+</html>

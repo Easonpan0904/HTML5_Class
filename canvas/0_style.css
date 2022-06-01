@@ -1,0 +1,9 @@
+canvas {
+  border: 1px solid #ccc;
+}
+
+p {
+  font: bold 50px tahoma;
+  color: red;
+  text-shadow: 5px -5px 5px rgba(204, 204, 204, 0.507);
+}
